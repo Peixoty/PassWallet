@@ -1,9 +1,9 @@
-import { Text, View, StyleSheet, TouchableOpacity, ActivityIndicator } from "react-native";
-import { useState } from "react";
-import { SafeAreaView } from "react-native-safe-area-context";
-import { Entypo } from "@expo/vector-icons";
-import { Poppins_600SemiBold } from "@expo-google-fonts/poppins";
-import { useFonts } from "expo-font";
+import { Text, View, StyleSheet, TouchableOpacity, ActivityIndicator, FlatList } from "react-native"
+import { useState } from "react"
+import { SafeAreaView } from "react-native-safe-area-context"
+import { Entypo } from "@expo/vector-icons"
+import { Poppins_600SemiBold } from "@expo-google-fonts/poppins"
+import { useFonts } from "expo-font"
 
 
 interface Conta {
@@ -30,17 +30,18 @@ export default function Index() {
     senha: "",
     imagem: ""
   })
-  const [isAdding, setIsAdding] = useState(false)
 
   return (
     <SafeAreaView style={styles.screen}>
 
       {/*Espaço do menu*/} 
       <View style={styles.menu}> 
+
         {/*Área do menu*/} 
         <View style={styles.menuArea}> 
+
           {/*Botão para adicionar nova senha*/}
-          <TouchableOpacity onPress={() => setIsAdding(true)}>
+          <TouchableOpacity >
             <Entypo name="circle-with-plus" size={30} color="black" style={{marginRight: 15}}/>
           </TouchableOpacity>
 
@@ -48,7 +49,9 @@ export default function Index() {
           <TouchableOpacity>
             <Entypo name="magnifying-glass" size={30} color="black" />
           </TouchableOpacity>
+
         </View>
+        
       </View>
 
       {/*Espaço da Carteira de Senhas*/}
@@ -56,6 +59,14 @@ export default function Index() {
         <Text style={styles.listTitle}>
           Minha Carteira
         </Text>
+        <FlatList 
+          data={conta}
+          keyExtractor={(item, index) => index.toString()}
+          renderItem={({ item }) => (
+            <View>
+            </View>
+          )}
+        />
       </View>
 
     </SafeAreaView>
