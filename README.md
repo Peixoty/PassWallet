@@ -1,6 +1,6 @@
 # PassWallet
 
-## O que é?
+## **O que é?**
 
 Você já ficou minutos tentando adivinhar a sua senha? Aí depois de tanto tentar, acabou tendo que redefinir sua senha, né? Deixa eu adivinhar: isso não aconteceu somente uma vez, certo?
 
